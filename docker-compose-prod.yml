@@ -3,7 +3,7 @@ version: '2.1'
 services:
   users-db:
     container_name: users-db
-    build: https://gitlab.com:${DYSFN_TOKEN}@gitlab.com/dysfn/flask-microservices-users.git#master:project/db
+    build: https://github.com/edv4rd0/flask-microservices-users.git#master:project/db
     ports:
       - 5435:5432
     environment:
@@ -13,7 +13,7 @@ services:
       test: exit 0
   users-service:
     container_name: users-service
-    build: https://gitlab.com:${DYSFN_TOKEN}@gitlab.com/dysfn/flask-microservices-users.git
+    build: https://github.com/edv4rd0/flask-microservices-users.git
     command: gunicorn -b 0.0.0.0:5000 manage:app
     expose:
       - '5000'
